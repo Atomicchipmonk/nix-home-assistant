@@ -25,35 +25,7 @@
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/
       default_config = {};
-      automation = [
-        {
-          alias = "Toggle Announcement";
-          triggers = [
-            {
-              trigger = {
-                platform = "numeric_state";
-                entity_id = "input_boolean.toggle";
-                to = "on";
-              };
-            }
-          ]; 
-          condition = [];
-          actions = [
-            {
-              action = {
-                target = {
-                  entity_id = "conversation.home_assistant";
-                  data = {
-                      message = "Turned Toggle On";
-                      preannounce = true;
-                  };
-                  
-                };
-              };
-            }
-          ]; 
-        }
-      ];
+      "automation ui" = "!include test-automations.yaml";
     };
   };
 
