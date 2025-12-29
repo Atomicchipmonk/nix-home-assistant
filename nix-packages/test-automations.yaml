@@ -1,0 +1,15 @@
+description: ""
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - input_boolean.toggle
+    to:
+      - "on"
+conditions: []
+actions:
+  - action: assist_satellite.announce
+    metadata: {}
+    data:
+      message: Toggle is on baby!
+      preannounce: true
