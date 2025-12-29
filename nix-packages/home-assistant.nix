@@ -29,9 +29,7 @@
       # "automation ui" = "!include test-automations.yaml";
     };
 
-    configWriteable = {
-      enable = true;
-    };
+    configWritable = true;
   };
 
 
