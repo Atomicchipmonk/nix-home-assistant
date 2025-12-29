@@ -19,6 +19,7 @@
       "piper"
       "whisper"
       "wyoming"
+      "conversation"
     ];
     config = {
       # Includes dependencies for a basic setup
