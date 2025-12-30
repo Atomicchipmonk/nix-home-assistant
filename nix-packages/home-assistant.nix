@@ -47,14 +47,6 @@
     #Assume CUDA capablity
     device = "cuda";
 
-    package = pkgs.wyoming-faster-whisper.override {
-      faster-whisper = pkgs.python3Packages.faster-whisper.override {
-        ctranslate2 = pkgs.python3Packages.ctranslate2.override {
-          cudaSupport = true;
-        };
-      };
-    };
-    
   };
 
   services.wyoming.openwakeword = {

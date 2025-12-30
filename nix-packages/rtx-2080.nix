@@ -3,6 +3,7 @@
 {
   # Enable proprietary NVIDIA drivers
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
   
   # NVIDIA driver configuration
   hardware.nvidia = {
@@ -34,4 +35,7 @@
   environment.systemPackages = with pkgs; [
     cudatoolkit
   ];
+
+  # Enable CUDA support system-wide
+  nixpkgs.config.cudaSupport = true;
 }
