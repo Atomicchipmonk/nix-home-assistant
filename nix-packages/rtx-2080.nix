@@ -37,5 +37,8 @@
   ];
 
   # Enable CUDA support system-wide
-  nixpkgs.config.cudaSupport = true;
+  nixpkgs.config = {
+    cudaSupport = true;
+    cudaCapabilities = [ "7.5" ];
+  };
 }
