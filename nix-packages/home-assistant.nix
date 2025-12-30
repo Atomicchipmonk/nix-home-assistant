@@ -45,7 +45,7 @@
     model = "turbo";
     uri = "tcp://0.0.0.0:10300";
     #Assume CUDA capablity
-    device = "cuda"
+    device = "cuda";
   };
 
   services.wyoming.openwakeword = {
