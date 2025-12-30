@@ -42,8 +42,10 @@
   services.wyoming.faster-whisper.servers.options = {
     enable = true;
     language = "en";
-    model = "distil-medium.en";
+    model = "turbo";
     uri = "tcp://0.0.0.0:10300";
+    #Assume CUDA capablity
+    device = "cuda"
   };
 
   services.wyoming.openwakeword = {
