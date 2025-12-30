@@ -5,9 +5,7 @@
         ./nix-packages/home-assistant.nix
         ./nix-packages/dev-tools.nix
         ./nix-packages/gaming.nix
+        ./nix-packages/rtx-2080.nix
     ];
-
-    ### NVIDIA RTX 2080 ###
-
 
 }
