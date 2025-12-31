@@ -26,8 +26,10 @@ in
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/
       default_config = {};
-      
-      # "automation ui" = "!include test-automations.yaml";
+
+      "automation ui" = "!include automations.yaml";
+      "scene ui" = "!include scenes.yaml";
+      "script ui" = "!include scripts.yaml";
     };
 
     ### Configuration is all stored in /var/lib/hass ###
