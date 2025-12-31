@@ -20,6 +20,7 @@ in
       "whisper"
       "wyoming"
       "conversation"
+      "isal"
     ];
     config = {
       # Includes dependencies for a basic setup
@@ -28,6 +29,8 @@ in
       
       # "automation ui" = "!include test-automations.yaml";
     };
+
+    ### Configuration is all stored in /var/lib/hass ###
 
     # configWritable = true;
 
