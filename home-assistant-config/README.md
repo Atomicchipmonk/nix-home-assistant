@@ -1,0 +1,1 @@
+dumping ground for home assistant configuration

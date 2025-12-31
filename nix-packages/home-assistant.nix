@@ -29,7 +29,9 @@ in
       # "automation ui" = "!include test-automations.yaml";
     };
 
-    # configWritable = true;
+    configWritable = true;
+    configDir = ../home-automation;
+
   };
 
 
