@@ -32,7 +32,7 @@ in
 
     ### Configuration is all stored in /var/lib/hass ###
 
-    # configWritable = true;
+    configWritable = true;
     configDir = ../home-assistant-config;
 
   };
