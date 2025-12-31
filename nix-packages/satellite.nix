@@ -17,6 +17,8 @@
     sound = {
       command = "aplay -r 22050 -c 1 -f S16_LE -t raw";
     };
+
+    # still no dice on vap, this just constantly streams mic data
     vad.enable = false;
 
   };

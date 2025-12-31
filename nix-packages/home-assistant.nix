@@ -2,12 +2,6 @@
 
 {
 
-  # environment.systemPackages  = with pkgs; [
-  #     wyoming-satellite
-  #     alsa-utils
-  #   ];
-
-
   services.home-assistant = {
     enable = true;
     extraComponents = [
@@ -45,7 +39,8 @@
       language = "en";
       model = "turbo";
       uri = "tcp://0.0.0.0:10300";
-      #Assume CUDA capablity
+
+      #Assumes CUDA capablity, specifically ctranslate2 (rtx-2080.nix)
       device = "cuda";
     };
 
@@ -54,7 +49,9 @@
   services.wyoming.openwakeword = {
     enable = true;
     uri = "tcp://0.0.0.0:10400";
+    customModelsDirectories =
 
+    #vap still no dice.
   };
 
 }
