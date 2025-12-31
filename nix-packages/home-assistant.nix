@@ -30,7 +30,7 @@ in
     };
 
     configWritable = true;
-    configDir = ../home-automation;
+    configDir = ../home-assistant-config;
 
   };
 
