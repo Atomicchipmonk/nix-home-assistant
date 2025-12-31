@@ -50,8 +50,11 @@
     };
 
     package = pkgs.wyoming-faster-whisper.override {
-      cudaSupport = true;
+      faster-whisper = pkgs.python3Packages.faster-whisper.override {
+        cudaSupport = true;
+      };
     };
+
   };
 
   services.wyoming.openwakeword = {
