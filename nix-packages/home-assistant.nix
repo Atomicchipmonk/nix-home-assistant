@@ -29,8 +29,7 @@ in
       # "automation ui" = "!include test-automations.yaml";
     };
 
-    configWritable = true;
-    configDir = ../home-assistant-config;
+    # configWritable = true;
 
   };
 
