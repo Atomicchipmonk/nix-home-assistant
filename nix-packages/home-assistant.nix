@@ -49,11 +49,19 @@
       device = "cuda";
     };
 
-    package = pkgs.wyoming-faster-whisper.override {
-      faster-whisper = pkgs.python3Packages.faster-whisper.override {
-        cudaSupport = true;
+    package = let
+      # Create a Python environment with CUDA-enabled faster-whisper
+      pythonWithCuda = pkgs.python3.override {
+        packageOverrides = self: super: {
+          faster-whisper = super.faster-whisper.override {
+            cudaSupport = true;
+          };
+        };
       };
-    };
+    in
+      (pkgs.wyoming-faster-whisper.override {
+        python3Packages = pythonWithCuda.pkgs;
+      });
 
   };
 
