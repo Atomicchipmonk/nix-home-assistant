@@ -50,10 +50,10 @@
     };
 
     package = let
-      # Create a Python environment with CUDA-enabled faster-whisper
+      # Create a Python environment with CUDA-enabled ctranslate2
       pythonWithCuda = pkgs.python3.override {
         packageOverrides = self: super: {
-          faster-whisper = super.faster-whisper.override {
+          ctranslate2 = super.ctranslate2.override {
             cudaSupport = true;
           };
         };
