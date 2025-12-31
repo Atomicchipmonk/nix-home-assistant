@@ -1,5 +1,11 @@
 { config, pkgs, libs, utils, ... }:
 
+let 
+  modelsLocation = builtins.path { 
+    name = "fixed-name"; 
+    path = ../models; 
+  };
+in
 {
 
   services.home-assistant = {
@@ -46,16 +52,11 @@
 
   };
 
-  let 
-    models = builtins.path { 
-      name = "fixed-name"; 
-      path = ../models; 
-    };
-  in
+  
     services.wyoming.openwakeword = {
       enable = true;
       uri = "tcp://0.0.0.0:10400";
-      customModelsDirectories = models;
+      customModelsDirectories = modelsLocation;
     };
 
 }
