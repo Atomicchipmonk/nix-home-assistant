@@ -49,7 +49,7 @@
   services.wyoming.openwakeword = {
     enable = true;
     uri = "tcp://0.0.0.0:10400";
-    customModelsDirectories = "../models";
+    # customModelsDirectories = "../models";
   };
 
 }
