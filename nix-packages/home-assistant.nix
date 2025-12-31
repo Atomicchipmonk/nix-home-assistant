@@ -46,10 +46,16 @@
 
   };
 
-  services.wyoming.openwakeword = {
-    enable = true;
-    uri = "tcp://0.0.0.0:10400";
-    customModelsDirectories = ../models;
-  };
+  let 
+    models = builtins.path { 
+      name = "fixed-name"; 
+      path = ../models; 
+    };
+  in
+    services.wyoming.openwakeword = {
+      enable = true;
+      uri = "tcp://0.0.0.0:10400";
+      customModelsDirectories = models;
+    };
 
 }
