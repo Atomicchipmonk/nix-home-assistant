@@ -7,6 +7,23 @@
     substituters = [ "https://cache.nixos-cuda.org" ];
     trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
   };
+
+  nixpkgs =  {
+    config = {
+      cudaSupport = false;
+      allowUnfree = true;
+    };
+
+    # Set ctranslate2 cuda support
+    overlays = [
+      (final: prev: {
+        ctranslate2 = prev.ctranslate2.override {
+          withCUDA = true;
+          withCuDNN = true;
+        };
+      })
+    ];
+  };
   
   # Enable proprietary NVIDIA drivers
   services.xserver.videoDrivers = [ "nvidia" ];

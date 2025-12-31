@@ -49,20 +49,6 @@
       device = "cuda";
     };
 
-    package = let
-      # Create a Python environment with CUDA-enabled ctranslate2
-      pythonWithCuda = pkgs.python3.override {
-        packageOverrides = self: super: {
-          ctranslate2 = super.ctranslate2.override {
-            cudaSupport = true;
-          };
-        };
-      };
-    in
-      (pkgs.wyoming-faster-whisper.override {
-        python3Packages = pythonWithCuda.pkgs;
-      });
-
   };
 
   services.wyoming.openwakeword = {
