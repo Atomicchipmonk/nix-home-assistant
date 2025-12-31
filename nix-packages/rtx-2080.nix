@@ -1,9 +1,15 @@
 { config, pkgs, ... }:
 
 {
+
+  # Use the public cuda nix cache
+  nix.settings = {
+    substituters = [ "https://cache.nixos-cuda.org" ];
+    trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
+  };
+  
   # Enable proprietary NVIDIA drivers
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
   
   # NVIDIA driver configuration
   hardware.nvidia = {
@@ -36,9 +42,4 @@
     cudatoolkit
   ];
 
-  # Enable CUDA support system-wide
-  nixpkgs.config = {
-    cudaSupport = true;
-    cudaCapabilities = [ "7.5" ];
-  };
 }

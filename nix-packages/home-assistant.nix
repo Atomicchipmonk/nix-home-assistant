@@ -39,14 +39,19 @@
     uri = "tcp://0.0.0.0:10200";
   };
 
-  services.wyoming.faster-whisper.servers.options = {
-    enable = true;
-    language = "en";
-    model = "turbo";
-    uri = "tcp://0.0.0.0:10300";
-    #Assume CUDA capablity
-    device = "cuda";
+  services.wyoming.faster-whisper = {
+    servers.options = {
+      enable = true;
+      language = "en";
+      model = "turbo";
+      uri = "tcp://0.0.0.0:10300";
+      #Assume CUDA capablity
+      device = "cuda";
+    };
 
+    package = pkgs.wyoming-faster-whisper.override {
+      cudaSupport = true;
+    };
   };
 
   services.wyoming.openwakeword = {
