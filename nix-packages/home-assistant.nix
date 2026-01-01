@@ -21,6 +21,7 @@ in
       "wyoming"
       "conversation"
       "isal"
+      "zha"
     ];
     config = {
       # Includes dependencies for a basic setup
