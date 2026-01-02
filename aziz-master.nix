@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
     ### Master Bedroom wyoming sattelite + monitor
 
@@ -6,6 +8,7 @@
     #   add your user
     #   enable ssh
     #   add git either through nix-shell or system
+    #   set hostname
     # add nix-channel
     # `sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware`
     # `sudo nix-channel --update`
