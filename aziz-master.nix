@@ -39,10 +39,6 @@
     services.xserver = {
         enable = true;
 
-        # GNOME Desktop Environment
-        displayManager.gdm.enable = true;
-        desktopManager.gnome.enable = true;
-
         # Configure keymap in X11
         xkb.layout = "us";
         xkb.variant = "";
@@ -52,14 +48,19 @@
 
     };
 
-    # Enable touchpad support (enabled default in most desktopManager).
-    services.libinput.enable = true;
+    # GNOME Desktop Environment
+    services.desktopManager.gnome.enable = true;
 
     services.displayManager = {
+        # GNOME Desktop Environment
+        gdm.enable = true;
 
         autoLogin.enable = true;
         autoLogin.user = "chris";
     };
+
+    # Enable touchpad support (enabled default in most desktopManager).
+    services.libinput.enable = true;
 
     # Disable the GNOME3/GDM auto-suspend feature that cannot be disabled in GUI!
     # If no user is logged in, the machine will power down after 20 minutes.
