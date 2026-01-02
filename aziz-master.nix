@@ -39,6 +39,10 @@
     services.xserver = {
         enable = true;
 
+        # GNOME Desktop Environment
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+
         # Configure keymap in X11
         xkb.layout = "us";
         xkb.variant = "";
@@ -49,9 +53,6 @@
     services.libinput.enable = true;
 
     services.displayManager = {
-        # GNOME Desktop Environment
-        gdm.enable = true;
-        gnome.enable = true;
 
         autoLogin.enable = true;
         autoLogin.user = "chris";
