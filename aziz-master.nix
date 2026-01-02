@@ -1,6 +1,16 @@
 {
     ### Master Bedroom wyoming sattelite + monitor
 
+    ### Prior setup required
+    # In configuration.nix 
+    #   add your user
+    #   enable ssh
+    #   add git either through nix-shell or system
+    # add nix-channel
+    # `sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware`
+    # `sudo nix-channel --update`
+
+
     imports = [
         <nixos-hardware/raspberry-pi/4>
         ./nix-packages/satellite.nix
@@ -8,6 +18,7 @@
 
     environment.systemPackages = with pkgs; [
         vlc
+        git
     ];
 
 
@@ -18,12 +29,26 @@
 
     ### Display ###
 
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
+    # Enable the X11 windowing system, 
+    services.xserver = {
+        enable = true;
 
-    # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+        # GNOME Desktop Environment
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+
+        # Configure keymap in X11
+        xkb.layout = "us";
+        xkb.variant = "";
+
+        # Enable touchpad support (enabled default in most desktopManager).
+        libinput.enable = true;
+    };
+
+    services.displayManager = {
+        autoLogin.enable = true;
+        autoLogin.user = "chris";
+    };
 
     # Disable the GNOME3/GDM auto-suspend feature that cannot be disabled in GUI!
     # If no user is logged in, the machine will power down after 20 minutes.
@@ -32,17 +57,4 @@
     systemd.targets.hibernate.enable = false;
     systemd.targets.hybrid-sleep.enable = false;
 
-    # Configure keymap in X11
-    services.xserver.xkb = {
-        layout = "us";
-        variant = "";
-    };
-
-    services.displayManager = {
-        autoLogin.enable = true;
-        autoLogin.user = "heisty";
-    };
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    services.xserver.libinput.enable = true;
 }
