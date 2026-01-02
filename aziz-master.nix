@@ -47,6 +47,9 @@
         xkb.layout = "us";
         xkb.variant = "";
 
+        # Turn off auto lock
+        xautolock.enable = false; 
+
     };
 
     # Enable touchpad support (enabled default in most desktopManager).
