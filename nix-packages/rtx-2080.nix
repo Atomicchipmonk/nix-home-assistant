@@ -31,8 +31,8 @@
   
   # NVIDIA driver configuration
   hardware.nvidia = {
-    # Legacy driver to handle AMD 1700
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+    # Legacy driver to handle AMD 1700 (legacy_470) not compatible with ctranslate2
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     
     # Modesetting is required for most wayland compositors
     modesetting.enable = true;
