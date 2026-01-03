@@ -77,9 +77,9 @@
     "spec_rstack_overflow=off"
     "nospectre_v2"  # Ryzen 1700 mitigations cause more problems than they solve
     
-    # PCIe fixes for first-gen Ryzen
-    "pcie_aspm=off"  # ASPM causes issues with Ryzen 1000
-    "pci=nomsi"  # If MSI still causes issues, try this instead
+    # # PCIe fixes for first-gen Ryzen
+    # "pcie_aspm=off"  # ASPM causes issues with Ryzen 1000
+    # "pci=nomsi"  # If MSI still causes issues, try this instead
   ];
   
   
