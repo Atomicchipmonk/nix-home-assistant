@@ -12,6 +12,7 @@
     config = {
       cudaSupport = false;
       allowUnfree = true;
+      nvidia.acceptLicense = true;
     };
 
     # Set ctranslate2 cuda support
