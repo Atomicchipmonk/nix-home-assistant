@@ -37,8 +37,8 @@
     # Modesetting is required for most wayland compositors
     modesetting.enable = true;
     
-    # Enable power management (optional but recommended)
-    powerManagement.enable = true;
+    # Disable power management (possibly helpful with crashes)
+    powerManagement.enable = false;
     
     # Keep the card powered during sleep/suspend (can help with stability)
     powerManagement.finegrained = false;
