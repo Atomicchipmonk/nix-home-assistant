@@ -66,17 +66,18 @@
     "rcu_nocbs=0-15"  # Offload RCU from all CPUs
     "nohz_full=1-15"  # Reduce timer interrupts on all but CPU 0
     
-    # NVIDIA driver fixes
-    "nvidia-drm.modeset=1"
-    "nvidia.NVreg_EnableMSI=1"
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=0"
-    "nvidia.NVreg_UsePageAttributeTable=1"
+    # # NVIDIA driver fixes
+    # "nvidia-drm.modeset=1"
+    # "nvidia.NVreg_EnableMSI=1"
+    # "nvidia.NVreg_PreserveVideoMemoryAllocations=0"
+    # "nvidia.NVreg_UsePageAttributeTable=1"
     
     # Disable SRSO mitigation (it's broken anyway on Ryzen 1700)
     "spec_rstack_overflow=off"
     "nospectre_v2"  # Ryzen 1700 mitigations cause more problems than they solve
     
     # # PCIe fixes for first-gen Ryzen
+    # JK this causes boot failure by not being able to talk to the ssd
     # "pcie_aspm=off"  # ASPM causes issues with Ryzen 1000
     # "pci=nomsi"  # If MSI still causes issues, try this instead
   ];
