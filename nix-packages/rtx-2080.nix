@@ -90,11 +90,11 @@
   # Disable CPU frequency scaling - causes issues on Ryzen 1700
   powerManagement.cpuFreqGovernor = "performance";
   
-  # Enable OpenGL/Vulkan support
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true; # Enable 32-bit support if needed
-  };
+  # # Enable OpenGL/Vulkan support
+  # hardware.graphics = {
+  #   enable = true;
+  #   enable32Bit = true; # Enable 32-bit support if needed
+  # };
   
   # Add CUDA toolkit to system packages if you want it available system-wide
   environment.systemPackages = with pkgs; [
