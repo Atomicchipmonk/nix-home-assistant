@@ -22,6 +22,7 @@ in
       "conversation"
       "isal"
       "zha"
+      "amcrest"
     ];
     config = {
       # Includes dependencies for a basic setup
