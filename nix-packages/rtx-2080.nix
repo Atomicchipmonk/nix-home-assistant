@@ -26,8 +26,7 @@
   };
   
   # Enable proprietary NVIDIA drivers
-  # We dont actually want to do this since we are running headless most of the time and just need CUDA support
-  # services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   
   # NVIDIA driver configuration
   hardware.nvidia = {
