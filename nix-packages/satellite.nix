@@ -4,12 +4,9 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.overrideAttrs (oldAttrs: {
-        postPatch = (oldAttrs.postPatch or "") + ''
-          # Add missing cstdint include
-          sed -i '17a #include <cstdint>' webrtc/api/task_queue/task_queue_base.h
-        '';
-      });
+      webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.override {
+        stdenv = prev.gcc13Stdenv;
+      }; 
     })
   ];
   
