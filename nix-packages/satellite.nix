@@ -4,9 +4,13 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.override {
-        stdenv = prev.gcc13Stdenv;
-      }; 
+      python313 = prev.python313.override {
+        packageOverrides = pyfinal: pyprev: {
+          webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.override {
+            stdenv = prev.gcc13Stdenv;
+          }; 
+        }
+      }
     })
   ];
   
