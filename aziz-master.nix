@@ -19,6 +19,9 @@
         ./nix-packages/satellite.nix
     ];
 
+    # satellite area set
+    services.wyoming.satellite.area = "master";
+
     environment.systemPackages = with pkgs; [
         vlc
         git

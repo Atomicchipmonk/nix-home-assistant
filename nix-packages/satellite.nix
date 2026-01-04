@@ -7,7 +7,7 @@
       webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.overrideAttrs (oldAttrs: {
         postPatch = (oldAttrs.postPatch or "") + ''
           # Add missing cstdint include
-          sed -i '17a #include <cstdint>' webrtc-audio-processing-1/api/task_queue/task_queue_base.h
+          sed -i '17a #include <cstdint>' webrtc/api/task_queue/task_queue_base.h
         '';
       });
     })
@@ -20,7 +20,8 @@
   services.wyoming.satellite = {
     enable = true;
     uri = "tcp://0.0.0.0:10700";
-    area = "master";
+    #Require area to be set somewhere else
+    #area = "master";
     user = "chris";
     microphone = {
       command = "arecord -r 16000 -c 1 -f S16_LE -t raw";
