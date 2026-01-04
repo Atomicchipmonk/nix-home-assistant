@@ -16,7 +16,7 @@
 
     imports = [
         <nixos-hardware/raspberry-pi/4>
-        #./nix-packages/satellite.nix
+        ./nix-packages/satellite.nix
     ];
 
     environment.systemPackages = with pkgs; [
