@@ -9,8 +9,8 @@
           webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.override {
             stdenv = prev.gcc13Stdenv;
           }; 
-        }
-      }
+        };
+      };
     })
   ];
   
