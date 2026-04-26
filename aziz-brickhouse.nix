@@ -9,6 +9,8 @@
         ./nix-packages/satellite.nix
     ];
 
+    # satellite area set
+    services.wyoming.satellite.area = "brickhouse";
 
     # Turn off all the suspend possibilities
     systemd.targets.sleep.enable = false;
