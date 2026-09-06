@@ -67,7 +67,17 @@
         autoLogin.user = "chris";
     };
 
-    
+    systemd.user.services.rtsp-viewer = {
+        description = "VLC RTSP camera viewer";
+        wantedBy = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+            EnvironmentFile = "/etc/secrets/rtsp.env";
+            ExecStart = ''${pkgs.vlc}/bin/vlc -vvv "rtsp://$CREDS@192.168.1.193:554/cam/realmonitor?channel=1&subtype=1"'';
+            Restart = "always";
+            RestartSec = 5;
+        };
+    };
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.libinput.enable = true;
