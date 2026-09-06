@@ -16,10 +16,10 @@
     #area = "master";
     user = "chris";
     microphone = {
-      command = "arecord -r 16000 -c 1 -f S16_LE -t raw";
+      command = "arecord -r 16000 -c 1 -f S16_LE -t raw --latency-msec=50";
     };
     sound = {
-      command = "aplay -r 22050 -c 1 -f S16_LE -t raw";
+      command = "aplay -r 22050 -c 1 -f S16_LE -t raw --latency-msec=50";
     };
 
     # still no dice on vap due to chunk size issue (), this just constantly streams mic data
