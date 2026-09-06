@@ -93,7 +93,7 @@
         after = [ "graphical-session.target" ];
         serviceConfig = {
             EnvironmentFile = "/etc/secrets/rtsp.env";
-            ExecStart = ''${pkgs.vlc}/bin/vlc -vvv "rtsp://''${CREDS}@192.168.1.193:554/cam/realmonitor?channel=1&subtype=1"'';
+            ExecStart = ''${pkgs.vlc}/bin/vlc -vvv --avcodec-hw=none "rtsp://''${CREDS}@192.168.1.193:554/cam/realmonitor?channel=1&subtype=1"'';
             Restart = "always";
             RestartSec = 5;
         };
