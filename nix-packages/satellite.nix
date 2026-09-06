@@ -2,24 +2,12 @@
 
 
 {
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     webrtc-audio-processing_1 = prev.webrtc-audio-processing_1.overrideAttrs (oldAttrs: {
-  #       # Use GCC 13
-  #       stdenv = prev.gcc13Stdenv;
-        
-  #       # Also add the missing include as a safety measure
-  #       postPatch = (oldAttrs.postPatch or "") + ''
-  #         sed -i '/#include "rtc_base\/thread_annotations.h"/a #include <cstdint>' \
-  #           webrtc-audio-processing-1/api/task_queue/task_queue_base.h
-  #       '';
-  #     });
-  #   })
-  # ];
   
   environment.systemPackages  = with pkgs; [
       alsa-utils
     ];
+
+  networking.firewall.allowedTCPPorts = [ 10700 ];
 
   services.wyoming.satellite = {
     enable = true;

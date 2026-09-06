@@ -57,7 +57,7 @@
     services.displayManager = {
         # GNOME Desktop Environment
         gdm.enable = true;
-
+        gdm.autoSuspend = false;
         autoLogin.enable = true;
         autoLogin.user = "chris";
     };
