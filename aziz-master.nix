@@ -13,6 +13,9 @@
     # `sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware`
     # `sudo nix-channel --update`
 
+    #Pin to 6.12 for now
+    boot.kernelPackages = pkgs.linuxPackages_6_12;
+
 
     imports = [
         <nixos-hardware/raspberry-pi/4>
@@ -72,7 +75,6 @@
     systemd.targets.hibernate.enable = false;
     systemd.targets.hybrid-sleep.enable = false;
 
-    #Pin to 6.12 for now
-    boot.kernelPackages = pkgs.linuxPackages_6_12
+    
 
 }
