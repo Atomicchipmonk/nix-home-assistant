@@ -72,4 +72,7 @@
     systemd.targets.hibernate.enable = false;
     systemd.targets.hybrid-sleep.enable = false;
 
+    #Pin to 6.12 for now
+    boot.kernelPackages = pkgs.linuxPackages_6_12
+
 }
