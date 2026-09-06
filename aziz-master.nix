@@ -33,9 +33,6 @@
 
     ###### Hardware Setup - Touch screen Raspi 4 ####### 
 
-    ### GPU ###
-    hardware.raspberry-pi."4".fkms-3d.enable = true;
-
     ### Audio ###
     boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
 
