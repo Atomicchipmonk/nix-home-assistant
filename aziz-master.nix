@@ -34,7 +34,12 @@
     ###### Hardware Setup - Touch screen Raspi 4 ####### 
 
     ### Audio ###
-    boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
+    boot.kernelParams = [
+        "snd_bcm2835.enable_hdmi=1"
+        "snd_bcm2835.enable_headphones=1"
+        "swiotlb=262144"   # ~512MB pool, up from the default ~64MB Trying to fix the dma overflow -> USB disconnect
+    ];
+
 
     ### Display ###
 
@@ -62,13 +67,7 @@
         autoLogin.user = "chris";
     };
 
-    # Trying to fix the dma overflow -> USB disconnect
-    boot.kernelParams = [
-        "snd_bcm2835.enable_hdmi=1"
-        "snd_bcm2835.enable_headphones=1"
-        "swiotlb=262144"   # ~512MB pool, up from the default ~64MB
-    ];
-
+    
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.libinput.enable = true;
