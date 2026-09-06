@@ -57,10 +57,18 @@
     services.displayManager = {
         # GNOME Desktop Environment
         gdm.enable = true;
-        gdm.autoSuspend = false;
+
         autoLogin.enable = true;
         autoLogin.user = "chris";
     };
+
+    # Trying to fix the dma overflow -> USB disconnect
+    boot.kernelParams = [
+        "snd_bcm2835.enable_hdmi=1"
+        "snd_bcm2835.enable_headphones=1"
+        "swiotlb=262144"   # ~512MB pool, up from the default ~64MB
+    ];
+
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.libinput.enable = true;
