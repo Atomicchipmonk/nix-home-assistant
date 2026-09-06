@@ -60,13 +60,32 @@
     services.desktopManager.gnome.enable = true;
 
     services.displayManager = {
-        # GNOME Desktop Environment
         gdm.enable = true;
-
+        autoSuspend = false;
         autoLogin.enable = true;
         autoLogin.user = "chris";
     };
 
+    services.desktopManager.gnome.extraGSettingsOverrides = ''
+    [org.gnome.desktop.session]
+    idle-delay=uint32 0
+
+    [org.gnome.desktop.screensaver]
+    idle-activation-enabled=false
+    lock-enabled=false
+
+    [org.gnome.settings-daemon.plugins.power]
+    sleep-inactive-ac-type='nothing'
+    sleep-inactive-battery-type='nothing'
+    idle-dim=false
+    '';
+    services.desktopManager.gnome.extraGSettingsOverridePackages = [
+        pkgs.gnome-settings-daemon
+        pkgs.gnome-session
+    ];
+
+
+    # Auto play video
     systemd.user.services.rtsp-viewer = {
         description = "VLC RTSP camera viewer";
         wantedBy = [ "graphical-session.target" ];
