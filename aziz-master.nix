@@ -38,7 +38,7 @@
     boot.kernelParams = [
         "snd_bcm2835.enable_hdmi=1"
         "snd_bcm2835.enable_headphones=1"
-        "swiotlb=262144"   # ~512MB pool, up from the default ~64MB Trying to fix the dma overflow -> USB disconnect
+        "swiotlb=524288"   # ~1GB pool
     ];
 
 
