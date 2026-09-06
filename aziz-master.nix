@@ -22,6 +22,11 @@
         ./nix-packages/satellite.nix
     ];
 
+    #Set usb current to max to stop usb mic/hid interference
+    boot.loader.raspberryPi.firmwareConfig = ''
+    usb_max_current_enable=1
+    '';
+
     # satellite area set
     services.wyoming.satellite.area = "master";
 
