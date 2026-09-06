@@ -61,7 +61,7 @@
 
     services.displayManager = {
         gdm.enable = true;
-        autoSuspend = false;
+        gdm.autoSuspend = false;
         autoLogin.enable = true;
         autoLogin.user = "chris";
     };
